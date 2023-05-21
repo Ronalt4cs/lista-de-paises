@@ -1,6 +1,8 @@
 import { api } from '@/api/api'
-import { ChevronDown, Moon, Search } from 'lucide-react'
+import { Moon } from 'lucide-react'
 import Image from 'next/image'
+import Search from './components/Search'
+import Filter from './components/Filter'
 
 interface Country {
   name: {
@@ -30,20 +32,9 @@ export default async function Home() {
       </header>
 
       <main className="flex flex-col items-center w-full px-56 gap-8">
-        <div className="flex justify-between w-full">
-          <div className="flex w-80 rounded-sm gap-2 text-gray-400 p-2 bg-gray-700">
-            <Search />
-            <input
-              type="text"
-              placeholder="Procure pelo país ..."
-              className="text-gray-200 bg-gray-700 focus:outline-none"
-            />
-          </div>
-
-          <div className="flex items-center w-40 rounded-sm gap-2 text-gray-400 p-2 bg-gray-700">
-            <span>Filtrar região</span>
-            <ChevronDown className="hover:text-gray-100" />
-          </div>
+        <div className="flex justify-between w-[900px] px-2">
+          <Search />
+          <Filter />
         </div>
 
         <div className="flex flex-wrap gap-4 justify-center">
@@ -64,9 +55,24 @@ export default async function Home() {
                   <h1 className="text-lg">{country.name.common}</h1>
 
                   <div className="flex flex-col gap-1 text-sm font-extralight leading-tight">
-                    <p>População: {country.population}</p>
-                    <p>Capital: {country.capital[0]}</p>
-                    <p>Região: {country.region}</p>
+                    <p className="text-gray-100">
+                      População:{' '}
+                      <span className="text-gray-400">
+                        {country.population
+                          .toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
+                      </span>
+                    </p>
+                    <p className="text-gray-100">
+                      Capital:{' '}
+                      <span className="text-gray-400">
+                        {country.capital[0]}
+                      </span>
+                    </p>
+                    <p className="text-gray-100">
+                      Região:{' '}
+                      <span className="text-gray-400">{country.region}</span>
+                    </p>
                   </div>
                 </div>
               </div>
