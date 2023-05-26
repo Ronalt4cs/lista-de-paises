@@ -37,7 +37,7 @@ export default async function Home() {
           <Filter />
         </div>
 
-        <div className="flex flex-wrap gap-4 justify-center">
+        <div className="grid grid-cols-4 gap-4">
           {countries.map((country: Country) => {
             return (
               <div
@@ -49,7 +49,7 @@ export default async function Home() {
                   alt={country.flags.alt}
                   width={208}
                   height={280}
-                  className="rounded-t-lg"
+                  className="rounded-t-lg h-32"
                 />
                 <div className="flex flex-col gap-1 p-3">
                   <h1 className="text-lg">{country.name.common}</h1>
