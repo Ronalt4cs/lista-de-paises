@@ -1,47 +1,27 @@
 import { api } from '@/api/api'
-import { Moon } from 'lucide-react'
 import Image from 'next/image'
 import Search from './components/Search'
 import Filter from './components/Filter'
-
-interface Country {
-  name: {
-    common: string
-    official: string
-  }
-  population: number
-  capital: string[]
-  region: string
-  flags: {
-    png: string
-    alt: string
-  }
-}
+import Link from 'next/link'
+import { Country } from '@/interfaces/Country'
 
 export default async function Home() {
   const response = await api('/all')
   const countries = response.data.slice(0, 8)
 
   return (
-    <div className="min-h-screen min-w-screen flex flex-col gap-8 items-center">
-      <header className="w-full flex items-center justify-between p-4 bg-gray-700">
-        <h1 className="text-xl font-bold leading-tight"> Onde no mundo?</h1>
-        <div className="flex items-center gap-1">
-          <Moon /> Modo escuro
-        </div>
-      </header>
-
-      <main className="flex flex-col items-center w-full px-56 gap-8">
+    <main className="min-h-screen min-w-screen flex flex-col gap-8 items-center">
+      <div className="flex flex-col items-center w-full px-56 gap-8">
         <div className="flex justify-between w-[900px] px-2">
           <Search />
           <Filter />
         </div>
-
         <div className="grid grid-cols-4 gap-4">
           {countries.map((country: Country) => {
             return (
-              <div
+              <Link
                 key={country.population}
+                href={`/country/${country.name.common}`}
                 className="flex flex-col w-52 rounded-lg bg-gray-700"
               >
                 <Image
@@ -75,11 +55,11 @@ export default async function Home() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </Link>
             )
           })}
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   )
 }
