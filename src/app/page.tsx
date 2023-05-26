@@ -10,7 +10,7 @@ export default async function Home() {
   const countries = response.data.slice(0, 8)
 
   return (
-    <main className="min-h-screen min-w-screen flex flex-col gap-8 items-center">
+    <main className="min-h-screen min-w-screen flex flex-col gap-8 items-center mt-10">
       <div className="flex flex-col items-center w-full px-56 gap-8">
         <div className="flex justify-between w-[900px] px-2">
           <Search />
