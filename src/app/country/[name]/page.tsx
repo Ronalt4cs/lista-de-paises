@@ -4,7 +4,11 @@ import { ArrowLeft } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default async function CountryDetail({ params }: any) {
+export default async function CountryDetail({
+  params,
+}: {
+  params: { name: string }
+}) {
   const { data } = await api.get(`/name/${params.name}`)
   const country: Country = data[0]
 
