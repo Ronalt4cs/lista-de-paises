@@ -27,8 +27,8 @@ export default async function Home() {
                 <Image
                   src={country.flags.png}
                   alt={country.flags.alt}
-                  width={208}
-                  height={280}
+                  width={320}
+                  height={277}
                   className="rounded-t-lg h-32"
                 />
                 <div className="flex flex-col gap-1 p-3">
