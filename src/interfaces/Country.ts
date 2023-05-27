@@ -7,15 +7,8 @@ export interface Country {
   capital: string[]
   region: string
   subregion: string
-  currencies: {
-    acronym: {
-      name: string
-      symbol: string
-    }
-  }
-  borders: string[]
   languages: {
-    name: string
+    [name: string]: string
   }
   flags: {
     png: string

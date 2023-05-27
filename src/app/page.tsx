@@ -36,22 +36,24 @@ export default async function Home() {
 
                   <div className="flex flex-col gap-1 text-sm font-extralight leading-tight">
                     <p className="text-gray-100">
-                      População:{' '}
-                      <span className="text-gray-400">
+                      População:
+                      <span className="text-gray-400 pl-1">
                         {country.population
                           .toString()
                           .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
                       </span>
                     </p>
                     <p className="text-gray-100">
-                      Capital:{' '}
-                      <span className="text-gray-400">
+                      Capital:
+                      <span className="text-gray-400 pl-1">
                         {country.capital[0]}
                       </span>
                     </p>
                     <p className="text-gray-100">
-                      Região:{' '}
-                      <span className="text-gray-400">{country.region}</span>
+                      Região:
+                      <span className="text-gray-400 pl-1">
+                        {country.region}
+                      </span>
                     </p>
                   </div>
                 </div>

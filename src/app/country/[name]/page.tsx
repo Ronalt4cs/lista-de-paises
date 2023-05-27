@@ -21,14 +21,42 @@ export default async function CountryDetail({
         <ArrowLeft />
         Voltar
       </Link>
-      <div className="flex justify-between">
+      <div className="flex gap-6">
         <Image
           src={country.flags.png}
           alt={country.flags.alt}
-          width={420}
+          width={520}
           height={420}
         />
-        <span>{country.name.common}</span>
+        <div className="flex flex-col gap-4">
+          <h1 className="text-2xl font-semibold">{country.name.common}</h1>
+          <div>
+            <p>
+              Nome oficial:
+              <span className="text-gray-400 pl-1">
+                {country.name.official}
+              </span>
+            </p>
+            <p className="text-gray-100">
+              População:
+              <span className="text-gray-400 pl-1">
+                {country.population
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
+              </span>
+            </p>
+            <p className="text-gray-100">
+              Região: <span className="text-gray-400">{country.region}</span>
+            </p>
+            <p className="text-gray-100">
+              Sub Região:
+              <span className="text-gray-400 pl-1">{country.subregion}</span>
+            </p>
+            <p className="text-gray-100">
+              Capital: <span className="text-gray-400">{country.capital}</span>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   )
