@@ -1,79 +1,67 @@
 import { api } from '@/api/api'
-import { ChevronDown, Moon, Search } from 'lucide-react'
 import Image from 'next/image'
-
-interface Country {
-  name: {
-    common: string
-    official: string
-  }
-  population: number
-  capital: string[]
-  region: string
-  flags: {
-    png: string
-    alt: string
-  }
-}
+import Search from './components/Search'
+import Filter from './components/Filter'
+import Link from 'next/link'
+import { Country } from '@/interfaces/Country'
 
 export default async function Home() {
-  const response = await api('/all')
+  const response = await api('/subregion/south america')
   const countries = response.data.slice(0, 8)
 
   return (
-    <div className="min-h-screen min-w-screen flex flex-col gap-8 items-center">
-      <header className="w-full flex items-center justify-between p-4 bg-gray-700">
-        <h1 className="text-xl font-bold leading-tight"> Onde no mundo?</h1>
-        <div className="flex items-center gap-1">
-          <Moon /> Modo escuro
+    <main className="min-h-screen min-w-screen flex flex-col gap-8 items-center mt-10">
+      <div className="flex flex-col items-center w-full px-56 gap-8">
+        <div className="flex justify-between w-[900px] px-2">
+          <Search />
+          <Filter />
         </div>
-      </header>
-
-      <main className="flex flex-col items-center w-full px-56 gap-8">
-        <div className="flex justify-between w-full">
-          <div className="flex w-80 rounded-sm gap-2 text-gray-400 p-2 bg-gray-700">
-            <Search />
-            <input
-              type="text"
-              placeholder="Procure pelo país ..."
-              className="text-gray-200 bg-gray-700 focus:outline-none"
-            />
-          </div>
-
-          <div className="flex items-center w-40 rounded-sm gap-2 text-gray-400 p-2 bg-gray-700">
-            <span>Filtrar região</span>
-            <ChevronDown className="hover:text-gray-100" />
-          </div>
-        </div>
-
-        <div className="flex flex-wrap gap-4 justify-center">
+        <div className="grid grid-cols-4 gap-4">
           {countries.map((country: Country) => {
             return (
-              <div
+              <Link
                 key={country.population}
+                href={`/country/${country.name.common}`}
                 className="flex flex-col w-52 rounded-lg bg-gray-700"
               >
                 <Image
                   src={country.flags.png}
                   alt={country.flags.alt}
-                  width={208}
-                  height={280}
-                  className="rounded-t-lg"
+                  width={320}
+                  height={277}
+                  className="rounded-t-lg h-32"
                 />
                 <div className="flex flex-col gap-1 p-3">
                   <h1 className="text-lg">{country.name.common}</h1>
 
                   <div className="flex flex-col gap-1 text-sm font-extralight leading-tight">
-                    <p>População: {country.population}</p>
-                    <p>Capital: {country.capital[0]}</p>
-                    <p>Região: {country.region}</p>
+                    <p className="text-gray-100">
+                      População:
+                      <span className="text-gray-400 pl-1">
+                        {country.population
+                          .toString()
+                          .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
+                      </span>
+                    </p>
+                    <p className="text-gray-100">
+                      Capital:
+                      <span className="text-gray-400 pl-1">
+                        {country.capital[0]}
+                      </span>
+                    </p>
+                    <p className="text-gray-100">
+                      Região:
+                      <span className="text-gray-400 pl-1">
+                        {country.region}
+                      </span>
+                    </p>
                   </div>
                 </div>
-              </div>
+              </Link>
             )
           })}
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   )
 }
