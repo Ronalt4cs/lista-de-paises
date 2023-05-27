@@ -18,7 +18,8 @@ export default async function CountryDetail({
     <div className="w-full h-full flex flex-col justify-center gap-10 p-10">
       <Link
         href="/"
-        className="flex items-center justify-center rounded-sm w-20 gap-2 p-2 bg-gray-700"
+        className="flex items-center justify-center rounded-sm w-20 gap-2 p-2 
+        shadow-md shadow-gray-900 bg-gray-700 hover:bg-gray-900"
       >
         <ArrowLeft />
         Voltar
@@ -32,7 +33,7 @@ export default async function CountryDetail({
         />
         <div className="flex flex-col justify-between">
           <h1 className="text-2xl font-semibold">{country.name.common}</h1>
-          <div>
+          <div className="columns-2">
             <p>
               Nome oficial:
               <span className="text-gray-400 pl-1">
@@ -63,7 +64,7 @@ export default async function CountryDetail({
                 {country.currencies[currency].name}
               </span>
               <span className="text-gray-400">
-                {country.currencies[currency].symbol}
+                {`(${country.currencies[currency].symbol})`}
               </span>
             </p>
             <p className="text-gray-100">
