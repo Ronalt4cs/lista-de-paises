@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { Country } from '@/interfaces/Country'
 
 export default async function Home() {
-  const response = await api('/all')
+  const response = await api('/subregion/south america')
   const countries = response.data.slice(0, 8)
 
   return (

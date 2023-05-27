@@ -11,6 +11,8 @@ export default async function CountryDetail({
 }) {
   const { data } = await api.get(`/name/${params.name}`)
   const country: Country = data[0]
+  const currency = Object.keys(country.currencies)[0]
+  const languagesNames = Object.values(country.languages)
 
   return (
     <div className="w-full h-full flex flex-col justify-center gap-10 p-10">
@@ -25,8 +27,8 @@ export default async function CountryDetail({
         <Image
           src={country.flags.png}
           alt={country.flags.alt}
-          width={520}
-          height={420}
+          width={320}
+          height={277}
         />
         <div className="flex flex-col justify-between">
           <h1 className="text-2xl font-semibold">{country.name.common}</h1>
@@ -54,6 +56,19 @@ export default async function CountryDetail({
             </p>
             <p className="text-gray-100">
               Capital: <span className="text-gray-400">{country.capital}</span>
+            </p>
+            <p className="text-gray-100">
+              Moeda:{' '}
+              <span className="mr-1 text-gray-400">
+                {country.currencies[currency].name}
+              </span>
+              <span className="text-gray-400">
+                {country.currencies[currency].symbol}
+              </span>
+            </p>
+            <p className="text-gray-100">
+              Idiomas:{' '}
+              <span className="text-gray-400">{languagesNames.join(', ')}</span>
             </p>
           </div>
           <a
