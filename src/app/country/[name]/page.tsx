@@ -1,6 +1,6 @@
 import { api } from '@/api/api'
 import { Country } from '@/interfaces/Country'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, MapPin } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -28,7 +28,7 @@ export default async function CountryDetail({
           width={520}
           height={420}
         />
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col justify-between">
           <h1 className="text-2xl font-semibold">{country.name.common}</h1>
           <div>
             <p>
@@ -56,6 +56,15 @@ export default async function CountryDetail({
               Capital: <span className="text-gray-400">{country.capital}</span>
             </p>
           </div>
+          <a
+            href={country.maps.googleMaps}
+            target="_blank"
+            className="flex gap-1 underline text-gray-100 hover:text-blue-200"
+            rel="noreferrer"
+          >
+            <MapPin />
+            Abrir google maps
+          </a>
         </div>
       </div>
     </div>
