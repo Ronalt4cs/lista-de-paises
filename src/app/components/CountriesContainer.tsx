@@ -35,7 +35,7 @@ export function CountriesContainer() {
   if (countries) {
     return (
       <div className="flex flex-col items-center w-full px-56 gap-8">
-        <div className="flex justify-between w-[900px] px-2">
+        <div className="flex justify-between w-[900px] px-2 max-lg:flex-col max-lg:items-center max-lg:gap-2">
           <Search />
           <div className="relative">
             <div className="flex items-center w-40 rounded-sm gap-2 text-gray-400 p-2 bg-gray-700">
@@ -46,7 +46,7 @@ export function CountriesContainer() {
               />
             </div>
             {isShowFilter && (
-              <div className="absolute flex flex-col w-40 mt-1 p-2 gap-1 rounded-sm  text-gray-400 bg-gray-700">
+              <div className="absolute flex flex-col w-40 mt-1 p-2 gap-1 rounded-sm text-gray-400 bg-gray-700">
                 <span
                   className="text-sm leading-tight cursor-pointer text-gray-300 hover:text-gray-200"
                   onClick={() => setFilter('africa')}
@@ -81,7 +81,7 @@ export function CountriesContainer() {
             )}
           </div>
         </div>
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-4 gap-4 max-xl:grid-cols-3 max-lg:grid-cols-2 max-md:flex max-md:flex-wrap">
           {countries.map((country: Country) => {
             return (
               <Link

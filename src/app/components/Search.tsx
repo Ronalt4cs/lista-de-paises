@@ -23,7 +23,7 @@ export default function Search() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex w-80 rounded-sm gap-2 text-gray-400 p-2 bg-gray-700"
+      className="flex w-80 rounded-sm gap-2 text-gray-400 p-2 bg-gray-700 max-sm:w-72"
     >
       <button type="submit" onClick={() => handleSubmit}>
         <SearchIcon className="hover:text-gray-100" />
