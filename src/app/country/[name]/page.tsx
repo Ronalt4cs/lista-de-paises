@@ -27,16 +27,16 @@ export default async function CountryDetail({
           <ArrowLeft />
           Voltar
         </Link>
-        <div className="flex gap-6">
+        <div className="flex gap-6 max-md:flex-col max-md:items-center">
           <Image
             src={country.flags.png}
             alt={country.flags.alt}
             width={320}
             height={277}
           />
-          <div className="flex flex-col justify-between">
+          <div className="flex flex-col justify-between max-sm:gap-4">
             <h1 className="text-2xl font-semibold">{country.name.common}</h1>
-            <div className="columns-2">
+            <div className="columns-2 max-sm:flex max-sm:flex-col">
               <p>
                 Nome oficial:
                 <span className="text-gray-400 pl-1">
