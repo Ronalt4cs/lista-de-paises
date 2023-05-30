@@ -11,26 +11,22 @@ import { ChevronDown } from 'lucide-react'
 export function CountriesContainer() {
   const [countries, setCountries] = useState([])
   const [isShowFilter, setIsShowFilters] = useState(false)
-  const filter = localStorage.getItem('filter')
+  const [filter, setFilter] = useState('america')
 
-  function setFilter(value: string) {
-    localStorage.setItem('filter', value)
+  function setNewFilter(value: string) {
+    setFilter(value)
     setIsShowFilters(false)
   }
 
   async function getCountries() {
-    if (!filter) {
-      setFilter('america')
-    }
     const response = await api(`/region/${filter}`)
-
     setCountries(response.data.slice(0, 8))
   }
 
   useEffect(() => {
     getCountries()
     // eslint-disable-next-line
-  }, [isShowFilter])
+  }, [filter])
 
   if (countries) {
     return (
@@ -49,31 +45,31 @@ export function CountriesContainer() {
               <div className="absolute flex flex-col w-40 mt-1 p-2 gap-1 rounded-sm text-gray-400 bg-gray-700">
                 <span
                   className="text-sm leading-tight cursor-pointer text-gray-300 hover:text-gray-200"
-                  onClick={() => setFilter('africa')}
+                  onClick={() => setNewFilter('africa')}
                 >
                   África
                 </span>
                 <span
                   className="text-sm leading-tight cursor-pointer text-gray-300 hover:text-gray-200"
-                  onClick={() => setFilter('america')}
+                  onClick={() => setNewFilter('america')}
                 >
                   América
                 </span>
                 <span
                   className="text-sm leading-tight cursor-pointer text-gray-300 hover:text-gray-200"
-                  onClick={() => setFilter('asia')}
+                  onClick={() => setNewFilter('asia')}
                 >
                   Ásia
                 </span>
                 <span
                   className="text-sm leading-tight cursor-pointer text-gray-300 hover:text-gray-200"
-                  onClick={() => setFilter('europe')}
+                  onClick={() => setNewFilter('europe')}
                 >
                   Europa
                 </span>
                 <span
                   className="text-sm leading-tight cursor-pointer text-gray-300 hover:text-gray-200"
-                  onClick={() => setFilter('oceania')}
+                  onClick={() => setNewFilter('oceania')}
                 >
                   Oceania
                 </span>
