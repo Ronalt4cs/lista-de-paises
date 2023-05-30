@@ -7,7 +7,7 @@ Esta aplicação é uma solução de um desafio proposto pelo site `frontend men
 
 - [Deploy](#link-da-aplicação---httpspaises-do-mundovercelapp)
 - [Screenshots](#screenshots)
-- [Links](#links-🔗)
+- [Links](#links)
 
 ## Funcionalidades
 
@@ -54,7 +54,7 @@ Inicie o servidor
 **Principais Tecnologias utilizadas**:
 `NextJs` , `Axios`, `React`, `TypeScript`, `JavaScript`, `Tailwindcss`
 
-## Links 🔗: 
+## Links: 
 
 * Linkedin - https://www.linkedin.com/in/ronalt-augusto-66202b24b/
 
