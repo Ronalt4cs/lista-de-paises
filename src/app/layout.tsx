@@ -15,9 +15,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
-        className={`overflow-hidden max-xl:overflow-y-scroll bg-gray-800 text-gray-100 ${inter.className}`}
+        className={`overflow-hidden max-xl:overflow-y-scroll bg-slate-50 text-zinc-900 dark:bg-gray-800 dark:text-gray-100 ${inter.className}`}
       >
         {children}
       </body>

@@ -23,15 +23,15 @@ export default function Search() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex w-80 rounded-sm gap-2 text-gray-400 p-2 bg-gray-700 max-sm:w-72"
+      className="flex w-80 rounded-sm gap-2 p-2 max-sm:w-72 border shadow-md dark:bg-gray-700 dark:text-gray-400 dark:border-none"
     >
       <button type="submit" onClick={() => handleSubmit}>
-        <SearchIcon className="hover:text-gray-100" />
+        <SearchIcon className="dark:hover:text-gray-100" />
       </button>
       <input
         type="text"
         placeholder="Procure pelo nome do país ..."
-        className="text-gray-200 bg-gray-700 focus:outline-none"
+        className="dark:text-gray-200 dark:bg-gray-700 focus:outline-none"
         onChange={handleSearch}
       />
     </form>
