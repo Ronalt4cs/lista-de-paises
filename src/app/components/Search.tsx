@@ -14,18 +14,20 @@ export default function Search() {
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    if (!countrySearch) {
+      return
+    }
     router.replace(`/country/${countrySearch}`)
   }
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex w-80 rounded-sm gap-2 text-gray-400 p-2 bg-gray-700"
+      className="flex w-80 rounded-sm gap-2 text-gray-400 p-2 bg-gray-700 max-sm:w-72"
     >
-      <SearchIcon
-        onClick={() => router.replace(`/country/${countrySearch}`)}
-        className="hover:text-gray-100"
-      />
+      <button type="submit" onClick={() => handleSubmit}>
+        <SearchIcon className="hover:text-gray-100" />
+      </button>
       <input
         type="text"
         placeholder="Procure pelo nome do país ..."
