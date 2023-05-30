@@ -16,7 +16,7 @@ Esta aplicação é uma solução de um desafio proposto pelo site `frontend men
 - Filtro por continente
 - Responsividade
 
-## Link da aplicação - link-deploy
+## Link da aplicação - https://paises-do-mundo.vercel.app/
 
 ## Rodando localmente
 
