@@ -49,7 +49,6 @@ Inicie o servidor
 ![App Screenshot](./public/screenshots/home-dark.png)
 ![App Screenshot](./public/screenshots/country-detail-dark.png)
 ![App Screenshot](./public/screenshots/desktop-preview.jpg)
-![App Screenshot](./public/screenshots/mobile-design-detail-dark.jpg)
 
 **Principais Tecnologias utilizadas**:
 `NextJs` , `Axios`, `React`, `TypeScript`, `JavaScript`, `Tailwindcss`
